@@ -118,8 +118,8 @@ def run(fname):
         index = create_rect_parallelepiped_shape(idx_ranges)
         df = pd.DataFrame(df, index=index)
         df_missing = get_missing_elements(df)
-        print("Missing elements")
-        print(df_missing)
+        print("Missing element cells")
+        print(df_missing.index.tolist())
         df = fill_missing_average6(df_missing, df)
         df_missing = get_missing_elements(df)
         if df_missing.shape[0] != 0:
@@ -128,7 +128,7 @@ def run(fname):
         index = df.index
     print("Reshaping to proper size {} {} {}".format(x_n, y_n, z_n))
     mat = df.as_matrix().reshape((x_n, y_n, z_n))
-    print(mat.shape)
+    print("Calculating gradients along each axis")
     mat_x = np.gradient(mat, axis=0)
     mat_y = np.gradient(mat, axis=1)
     mat_z = np.gradient(mat, axis=2)
