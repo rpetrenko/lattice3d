@@ -11,4 +11,7 @@ for i in range(-1,2):
 ```
 * in the test file we'll intentionally make (0,0,0) element as NaN
 * the missing values are computed as average of neighbouring elements x,y,z +/- 1, excluding diagonals
-
+* run against sample file
+```bash
+ python gradients.py --data-file lattice3x3x3-linear.txt --out-dir out
+```
