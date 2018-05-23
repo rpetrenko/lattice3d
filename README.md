@@ -5,7 +5,7 @@ This project demonstrates usage of numpy gradients with 3D arrays
 * x, y, z are integers, and values are floats
 * to generate test file with 3x3x3 linear cell, and two missing cells (0,0,0) and (0,1,1)
 ```bash
-generate_sample_data.py
+generate_data.py
 ```
 * in the test file we'll intentionally make (0,0,0) element as NaN
 * the missing values are computed as average of neighbouring elements x,y,z +/- 1, excluding diagonals

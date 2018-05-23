@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import os
 from os.path import expanduser
@@ -97,7 +99,7 @@ def fill_missing_average6(df_missing, df):
     return df
 
 
-def create_rect_parallelepiped_shape(l_ind):
+def create_cuboid_shape(l_ind):
     index = pd.MultiIndex.from_product([range(l_ind[0]['min'], l_ind[0]['max'] + 1),
                                         range(l_ind[1]['min'], l_ind[1]['max'] + 1),
                                         range(l_ind[2]['min'], l_ind[2]['max'] + 1)],
@@ -115,7 +117,7 @@ def run(fname):
     if df.shape[0] != tot_size:
         print("Some values are missing, trying to fix it")
         print("Number of missing elements {}".format(tot_size - df.shape[0]))
-        index = create_rect_parallelepiped_shape(idx_ranges)
+        index = create_cuboid_shape(idx_ranges)
         df = pd.DataFrame(df, index=index)
         df_missing = get_missing_elements(df)
         print("Missing element cells")
